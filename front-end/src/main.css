@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  margin: 5px 15px 0px 15px;
+  padding: 0;
+}
+
+.page-wrap {
+  margin: auto;
+  max-width: 800px;
+  padding-bottom: 20px; /* Add some bottom padding for better UX */
+}
+
+button {
+  background-color: black;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  outline: 0;
+  padding: 16px;
+  width: 100%;
+}
+
+h1 {
+  margin: 0;
+  margin-top: 25px;
+  display: flex;
+  align-items: end;
+}
+
+h3 {
+  margin: 0;
+  display: flex;
+  align-items: end;
+}
+
+.total-price {
+  padding: 16px;
+  text-align: right;
+}
+
+.checkout-button {
+  width: 100%;
+}
+
+.product-container {
+  align-content: "center";
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  padding: 16px;
+  width: 100%;
+}
+
+.product-image {
+  flex: 1;
+  height: 100px;
+  max-width: 100px;
+}
+
+.details-wrap {
+  padding: 0 16px;
+  flex: 3;
+}
+
+.remove-button {
+  flex: 1;
+  margin: auto;
+}
+
+.img-wrap {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.img-wrap img {
+  width: 400px;
+}
+
+.product-details {
+  border-bottom: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 16px;
+}
+
+.add-to-cart {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.add-to-cart-multiple {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.added-to-cart {
+  background-color: #28a745 !important;
+}
+
+.green-button {
+  background-color: green;
+}
+
+.grey-button {
+  background-color: #888;
+}
+
+.nav-bar {
+  border-bottom: 1px solid #ddd;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrap {
+  width: 120px;
+  height: 120px;
+}
+
+.products-link {
+  text-align: center;
+  display: block;
+  color: black;
+  font-size: 22px;
+  top: 16px;
+  text-decoration: none;
+}
+
+.products-link h1 {
+  margin: 0;
+}
+
+.grid-wrap {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.product-item {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px #888;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+  padding: 20px;
+  position: relative;
+  width: 32%;
+}
+
+.product-name {
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+.product-item img {
+  height: 200px;
+  width: 200px;
+}
+
+.product-item a {
+  width: 100%;
+}
+
+.product-item button {
+  width: 100%;
+}
+
+.product-container {
+  align-content: "center";
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  padding: 16px;
+  width: 100%;
+}
+
+.product-image {
+  flex: 1;
+  height: 100px;
+  max-width: 100px;
+}
+
+.details-wrap {
+  padding: 0 16px;
+  flex: 3;
+}
+
+.remove-button {
+  flex: 1;
+  margin: auto;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.loading-text {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+}
+
+#itemCounter {
+  width: 60px;
+  height: 46px;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 0px 8px 11px;
+  font-weight: 700;
+}
+
+.user-handler-form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.user-handler-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.navbar-right a {
+  min-width: fit-content;
+}
+
+.user-welcome {
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 135px;
+}
+
+#main-logo {
+  margin-top: 30px;
+}
+
+#shopping-cart-container {
+  margin-top: 30px;
+}
