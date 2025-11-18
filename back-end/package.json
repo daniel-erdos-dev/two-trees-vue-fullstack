@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d build",
+    "build": "babel src -d build && node -e \"require('fs').cpSync('../front-end/dist', './dist', {recursive: true})\"",
     "start": "node build/server.js",
     "dev": "nodemon --exec babel-node src/server.js"
   },

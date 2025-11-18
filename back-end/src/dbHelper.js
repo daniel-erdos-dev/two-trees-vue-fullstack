@@ -10,7 +10,7 @@ const mongoDbName = process.env.MONGODB_DB_NAME;
 const mongoProductsCollection = "Products";
 const mongoUsersCollection = "Users";
 
-const uri = `mongodb+srv://${mongoUser}:${mongoPassword}@${mongoClusterUrl}/?appName=Cluster0`;
+const uri = `mongodb+srv://${mongoUser}:${mongoPassword}@${mongoClusterUrl}/${mongoDbName}?retryWrites=true&w=majority&appName=Cluster0`;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -18,10 +18,6 @@ const client = new MongoClient(uri, {
     strict: true,
     deprecationErrors: true,
   },
-  tls: true,
-  tlsAllowInvalidCertificates: false,
-  retryWrites: true,
-  w: "majority",
 });
 
 let db;
