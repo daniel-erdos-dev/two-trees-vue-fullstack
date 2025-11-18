@@ -18,9 +18,12 @@ const app = express();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "../assets/images")));
 
-app.listen(9000, () => {
-  console.log("Server is running on http://localhost:9000");
-});
+app.use(
+  express.static(path.resolve(__dirname, "../dist"), {
+    maxAge: "1y",
+    etag: false,
+  })
+);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK!" });
@@ -155,3 +158,19 @@ app.delete("/api/users/:id/cart/:cartItemId", async (req, res) => {
     res.status(500).json({ error: "Failed to remove item from cart" });
   }
 });
+
+// Catch-all handler: send back Vue's index.html file for client-side routing
+app.use((req, res) => {
+  res.sendFile(path.resolve(__dirname, "../dist/index.html"));
+});
+
+const PORT = process.env.PORT || 9000;
+const HOST = process.env.NODE_ENV === "prod" ? "0.0.0.0" : "localhost";
+
+app
+  .listen(PORT, HOST, () => {
+    console.log(`Server is running on http://${HOST}:${PORT}`);
+  })
+  .on("error", (err) => {
+    console.error("Server failed to start:", err);
+  });

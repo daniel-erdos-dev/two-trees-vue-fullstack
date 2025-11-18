@@ -11,8 +11,8 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "http://localhost:9000",
-      "/images": "http://localhost:9000",
+      "/api": "https://two-trees-vue-backend.onrender.com",
+      "/images": "https://two-trees-vue-backend.onrender.com",
     },
   },
 });
