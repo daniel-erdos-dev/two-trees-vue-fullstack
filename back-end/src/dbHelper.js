@@ -18,6 +18,10 @@ const client = new MongoClient(uri, {
     strict: true,
     deprecationErrors: true,
   },
+  tls: true,
+  tlsAllowInvalidCertificates: false,
+  retryWrites: true,
+  w: "majority",
 });
 
 let db;

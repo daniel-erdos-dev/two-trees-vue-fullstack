@@ -18,8 +18,14 @@ const app = express();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "../assets/images")));
 
+// Serve static files from dist folder (adjust path for production build)
+const distPath =
+  process.env.NODE_ENV === "production"
+    ? path.resolve(__dirname, "../../front-end/dist")
+    : path.resolve(__dirname, "../dist");
+
 app.use(
-  express.static(path.resolve(__dirname, "../dist"), {
+  express.static(distPath, {
     maxAge: "1y",
     etag: false,
   })
@@ -161,11 +167,15 @@ app.delete("/api/users/:id/cart/:cartItemId", async (req, res) => {
 
 // Catch-all handler: send back Vue's index.html file for client-side routing
 app.use((req, res) => {
-  res.sendFile(path.resolve(__dirname, "../dist/index.html"));
+  const indexPath =
+    process.env.NODE_ENV === "production"
+      ? path.resolve(__dirname, "../../front-end/dist/index.html")
+      : path.resolve(__dirname, "../dist/index.html");
+  res.sendFile(indexPath);
 });
 
 const PORT = process.env.PORT || 9000;
-const HOST = process.env.NODE_ENV === "prod" ? "0.0.0.0" : "localhost";
+const HOST = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
 
 app
   .listen(PORT, HOST, () => {
