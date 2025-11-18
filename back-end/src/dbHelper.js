@@ -24,11 +24,21 @@ let db;
 
 export const mongoConnect = async () => {
   try {
+    console.log("Attempting to connect to MongoDB...");
+    console.log(`Using MongoDB User: ${mongoUser}`);
+    console.log(`Using MongoDB Cluster: ${mongoClusterUrl}`);
+    console.log(`Using MongoDB Database: ${mongoDbName}`);
+
     await client.connect();
-    console.log("Connected to MongoDB");
+
+    // Verify connection
+    await client.db("admin").command({ ping: 1 });
+
+    console.log("Successfully connected to MongoDB!");
     db = client.db(mongoDbName);
   } catch (error) {
     console.error("MongoDB connection error:", error);
+    throw error; // Re-throw so server startup fails
   }
 };
 
