@@ -12,8 +12,6 @@ import { randomUUID } from "crypto";
 
 const generateGuid = () => randomUUID();
 
-mongoConnect();
-
 const app = express();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "../assets/images")));
@@ -171,10 +169,22 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 9000;
 const HOST = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
 
-app
-  .listen(PORT, HOST, () => {
-    console.log(`Server is running on http://${HOST}:${PORT}`);
-  })
-  .on("error", (err) => {
-    console.error("Server failed to start:", err);
-  });
+// Start server only after MongoDB connection is established
+const startServer = async () => {
+  try {
+    await mongoConnect();
+
+    app
+      .listen(PORT, HOST, () => {
+        console.log(`Server is running on http://${HOST}:${PORT}`);
+      })
+      .on("error", (err) => {
+        console.error("Server failed to start:", err);
+      });
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
+};
+
+startServer();
